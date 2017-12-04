@@ -11,9 +11,9 @@ $( document ).ready(function() {
       $('#issue').val("");
 
       doctorSearch.issuePromise(issue);
-
-    //   $('#doclist').show();
-
+      $("#reset").click(function() {
+            $("#doclist").empty();
+        });
   });
 
   $('#doctorname').click(function(e) {
@@ -22,9 +22,9 @@ $( document ).ready(function() {
       $('#name').val("");
 
       doctorSearch.docnamePromise(name);
-
-      $('#docname').show();
-
+      $("#reset").click(function() {
+            $("docname").empty();
+        });
   });
 
   });

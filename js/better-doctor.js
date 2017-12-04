@@ -32,7 +32,6 @@ issuePromise.then(function(response) {
   });
   };
 
-
 }, function(error) {
   $('.showErrors').text(`There was an error processing your request: ${error.message}`);
 });
@@ -61,13 +60,13 @@ docnamePromise.then(function(response) {
     body.data.forEach(function(item) {
         if(item.profile.first_name === name || item.profile.last_name === name ) {
             found = true;
-            $('#docname').append(`Doctor's Name - ${item.profile.first_name}`
+            $('#docname').append(`Doctor's Name - ${item.profile.first_name} ${item.profile.last_name}`
             + "<br>" + `Address - ${item.practices[0].visit_address.city}, ${item.practices[0].visit_address.state}, ${item.practices[0].visit_address.street}, ${item.practices[0].visit_address.zip}`+ "<br>" + `Phone Number - ${item.practices[0].phones[0].number}` + "<br>" + `Website - ${item.practices[0].website}` + "<br>" + `Accepts New Patients - ${item.practices[0].accepts_new_patients}`+ "<br>" + "<hr>");
         }
     });
-    
+
     if(!found){
-        $("#docname").text("Sorry No Doctor Found for this name");
+        $("#docname").text("Sorry No Doctor Found for this Name");
     }
 
 }, function(error) {
